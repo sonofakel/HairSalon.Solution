@@ -68,8 +68,8 @@ namespace HairSalon.Models
       {
         int clientId = rdr.GetInt32(0);
         string name = rdr.GetString(1);
-        int cuisineId = rdr.GetInt32(2);
-        Client newClient = new Client(name, cuisineId, clientId);
+        int stylistId = rdr.GetInt32(2);
+        Client newClient = new Client(name, stylistId, clientId);
         clientList.Add(newClient);
       }
       conn.Close();
@@ -96,6 +96,46 @@ namespace HairSalon.Models
 
       cmd.ExecuteNonQuery();
       _id = (int) cmd.LastInsertedId;
+      conn.Close();
+    }
+
+    public static Client Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM clients WHERE id = @clientId;";
+
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@clientId";
+      searchId.Value = id;
+      cmd.Parameters.Add(searchId);
+
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+
+      int clientId = 0;
+      string clientName = "";
+      int stylistId = 0;
+
+      while(rdr.Read())
+      {
+        clientId = rdr.GetInt32(0);
+        clientName = rdr.GetString(1);
+        stylistId = rdr.GetInt32(2);
+      }
+      Client foundClient = new Client(clientName, stylistId, clientId);
+      conn.Close();
+      return foundClient;
+    }
+
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM clients;";
+      cmd.ExecuteNonQuery();
       conn.Close();
     }
 

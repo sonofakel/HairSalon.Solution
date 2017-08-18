@@ -6,7 +6,7 @@ using HairSalon.Models;
 namespace HairSalon.Tests
 {
   [TestClass]
-  public class ClientTest
+  public class ClientTest : IDisposable
   {
     public ClientTest()
     {
@@ -32,6 +32,22 @@ namespace HairSalon.Tests
       List<Client> expected = new List<Client> {testClient};
 
       CollectionAssert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void Find_FindsClientByIdInDatabase_Client()
+    {
+      Client expected = new Client("Raymond", 1);
+      expected.Save();
+
+      Client actual = Client.Find(expected.GetId());
+
+      Assert.AreEqual(expected, actual);
+    }
+
+    public void Dispose()
+    {
+      Client.DeleteAll();
     }
 
   }

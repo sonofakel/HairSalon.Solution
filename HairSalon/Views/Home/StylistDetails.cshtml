@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="jumbotron">
+  <h1>Stylist: @Model.GetName()</h1>
+</div>
+
+<div class="container">
+
+  <form class="form-group" action="/stylist-details/@Model.GetId()" method="post">
+
+    <label for="client-name">Enter a client:</label>
+    <input type="text" name="client-name" <input pattern=".{1,}" required title="Minimum 1 character required">
+
+    <button type="submit" class="btn btn-success">Add Restaurant</button>
+      <a href="/"><button type="button" class="btn btn-info">Back</button></a>
+
+  </form>
+
+
+  @foreach(var client in Model.SearchAllClients())
+  {
+    <div class="well">
+    <form action="/stylist-details/@Model.GetId()/deleted/@client.GetId()" method="post">
+
+    <h3><a href="/stylist-details/@Model.GetId()/edit/@client.GetId()"> @client.GetName()</a><button type="submit" class="btn btn-danger">Delete</button></h3>
+    </form>
+    </div>
+  }
+
+
+</div>

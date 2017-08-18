@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="jumbotron">
+  <h1>Hair Salon</h1>
+</div>
+
+<div class="container">
+  <h1>Enter a new stylist!</h1>
+  <form action="/" class="form-group" method="post">
+    <label for="stylist-name">Enter a stylist</label>
+    <input type="text" class="form-control" name="stylist-name" value="" <input pattern=".{1,}" required title="Minimum 1 character required">
+
+    <button type="submit" name="button" class="btn btn-success">Submit the stylist!</button>
+  </form>
+
+
+  @if(Model!=null)
+  {
+    @foreach(var stylist in Model)
+    {
+      <div class="well">
+        <h3><a href="/stylist-details/@stylist.GetId()">@stylist.GetName()</a> <span style="font-size:.5em">
+      </div>
+    }
+  }
+</div>

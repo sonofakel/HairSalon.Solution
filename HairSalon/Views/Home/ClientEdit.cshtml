@@ -1,0 +1,13 @@
+@{
+  Layout ="_Layout";
+}
+
+<div class="jumbotron">
+  <h1>Update @Model["client"].GetName()</h1>
+</div>
+
+<form class="form-group" method="post" action='/stylist-details/@Model["stylist"].GetId()/client-edited/@Model["client"].GetId()'>
+
+  <label for="updated-client">Update the client name</label>
+  <input name="updated-client" type="text">
+  <button type="submit" class="btn btn-info">Update</button>

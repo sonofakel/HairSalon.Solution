@@ -26,13 +26,13 @@ _This web app will allow a hair salon owner to add a list of stylist, and for ea
 
 | App Behavior | Expected | Actual |
 |----|----|----|  
-|  Get All method for Stylists | List of all stylists | List of all stylist from DB |
-|  Save stylist to database|  List with one stylist: Becky  |  List with one stylist: Becky  |
-|  Find stylist from database by id|  Type Stylist: Becky  |  Type Stylist: Becky  |
-| Get a list of all clients specific to the stylist | List with one client : Charlie | List with one client : Charlie|
+|  Get all stylists at first position in database | 0 | Database List<Stylist> count start at 0 |
+|  Save stylist to database|  Local List<stylist> = {Becky, 1}  | Database List<stylist> = {Becky, 1}   |
+|  Find stylist from database by id|  Crystal  |  Crystal  |
+| Get all clients at first position in database | 0 | Database List<Stylist> count start at 0|
 |  Save client to database | List with one client: Sarah | List with one client: Sarah |
-|  Find client from database by id|  Type Client: Raymond  |  Type Client: Raymond  |
-|  Get all clients of a specific Stylist by stylist_id|  Client list  |  Client list  |
+|  Find client from database by id| Raymond  |  Raymond  |
+|  Get all clients of a specific Stylist by stylist_id|  Local client list  |  Database Client list matches local client list  |
 |  Update clients name | David | David |
 |  Delete client |A list of only one client rather than two | A database query that only returns one client after delete method has been called |
 

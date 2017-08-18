@@ -169,6 +169,8 @@ namespace HairSalon.Models
       conn.Close();
     }
 
+    
+
 
     public static void DeleteAll()
     {

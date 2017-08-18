@@ -13,7 +13,7 @@
     <label for="client-name">Enter a client:</label>
     <input type="text" name="client-name" <input pattern=".{1,}" required title="Minimum 1 character required">
 
-    <button type="submit" class="btn btn-success">Add Restaurant</button>
+    <button type="submit" class="btn btn-success">Add Client</button>
       <a href="/"><button type="button" class="btn btn-info">Back</button></a>
 
   </form>
@@ -22,9 +22,10 @@
   @foreach(var client in Model.SearchAllClients())
   {
     <div class="well">
+    <h3>@client.GetName()</h3>
+    <a href="/stylist-details/@Model.GetId()/edit/@client.GetId()"><button type="submit" class="btn btn-info">Edit</button></a>
     <form action="/stylist-details/@Model.GetId()/deleted/@client.GetId()" method="post">
-
-    <h3><a href="/stylist-details/@Model.GetId()/edit/@client.GetId()"> @client.GetName()</a><button type="submit" class="btn btn-danger">Delete</button></h3>
+    <button type="submit" class="btn btn-danger">Delete</button>
     </form>
     </div>
   }

@@ -116,7 +116,7 @@ namespace HairSalon.Models
     conn.Open();
 
     var cmd = conn.CreateCommand() as MySqlCommand;
-    cmd.CommandText = @"SELECT * FROM clients WHERE client_id = @thisId;";
+    cmd.CommandText = @"SELECT * FROM clients WHERE stylist_id = @thisId;";
 
     MySqlParameter searchId = new MySqlParameter();
     searchId.ParameterName = "@thisId";
@@ -129,9 +129,9 @@ namespace HairSalon.Models
     {
         int clientId = rdr.GetInt32(0);
         string clientName= rdr.GetString(1);
-        int clientCuisineId = rdr.GetInt32(2);
+        int stylistId = rdr.GetInt32(2);
 
-        Client newClient = new Client(clientName, clientCuisineId, clientId);
+        Client newClient = new Client(clientName, stylistId, clientId);
         newClientList.Add(newClient);
 
     }

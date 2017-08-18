@@ -21,5 +21,30 @@ namespace HairSalon.Tests
 
       Assert.AreEqual(expected, actual);
     }
+
+    [TestMethod]
+    public void Save_SavesStylistToDataBase_StylistList()
+    {
+      Stylist newStylist = new Stylist("Becky");
+      newStylist.Save();
+
+      List<Stylist> expectedStylistList = new List<Stylist>{newStylist};
+      List<Stylist> actualStylistList = Stylist.GetAll();
+
+      CollectionAssert.AreEqual(expectedStylistList, actualStylistList);
+    }
+
+    [TestMethod]
+    public void Find_FindsStylistByIdInDatabase_Stylist()
+    {
+      Stylist testStylist = new Stylist("Crystal");
+      testStylist.Save();
+
+      Stylist expected = testStylist;
+      Stylist actual = Stylist.Find(testStylist.GetId());
+
+      Assert.AreEqual(expected, actual);
+    }
+    
   }
 }

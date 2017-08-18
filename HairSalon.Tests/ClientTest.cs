@@ -45,6 +45,20 @@ namespace HairSalon.Tests
       Assert.AreEqual(expected, actual);
     }
 
+    [TestMethod]
+    public void GetAll_ReturnAListOfAllClientsInStylist_ClientList()
+    {
+      Client client1 = new Client ("Buddy", 1);
+      Client client2 = new Client ("Harry", 1);
+      client1.Save();
+      client2.Save();
+
+      List<Client> expected = new List<Client> {client1, client2};
+      List<Client> actual = Client.GetAll();
+
+      CollectionAssert.AreEqual(expected, actual);
+    }
+
     public void Dispose()
     {
       Client.DeleteAll();

@@ -129,6 +129,9 @@ namespace HairSalon.Models
       return foundClient;
     }
 
+    
+
+
     public static void DeleteAll()
     {
       MySqlConnection conn = DB.Connection();
@@ -138,7 +141,5 @@ namespace HairSalon.Models
       cmd.ExecuteNonQuery();
       conn.Close();
     }
-
-
   }
 }

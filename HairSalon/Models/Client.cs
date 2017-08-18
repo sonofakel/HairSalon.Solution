@@ -8,7 +8,7 @@ namespace HairSalon.Models
   {
     private int _id;
     private string _name;
-    private int _cuisineId;
+    private int _stylistId;
 
     public Client(string name, int stylistId, int id = 0)
     {
@@ -16,7 +16,7 @@ namespace HairSalon.Models
       _name = name;
       _stylistId = stylistId;
     }
-    
+
     public string GetName()
     {
       return _name;
@@ -42,9 +42,9 @@ namespace HairSalon.Models
 
         bool idEquality = (this.GetId() == newClient.GetId());
         bool nameEquality = (this.GetName() == newClient.GetName());
-        bool cuisineEquality = (this.GetStylistId() == newClient.GetStylistId());
+        bool stylistEquality = (this.GetStylistId() == newClient.GetStylistId());
 
-        return (idEquality && nameEquality && StylistEquality);
+        return (idEquality && nameEquality && stylistEquality);
       }
     }
 

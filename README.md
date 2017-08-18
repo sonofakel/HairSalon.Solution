@@ -30,7 +30,7 @@ _This web app will allow a hair salon owner to add a list of stylist, and for ea
 |  Save stylist to database|  List with one stylist: Becky  |  List with one stylist: Becky  |
 |  Find stylist from database by id|  Becky  |  Becky  |
 | Get a list of all clients specific to the stylist | List with one client : Charlie | List with one client : Charlie|
-|  Save client to database | Charlie | Charlie |
+|  Save client to database | List with one client: Sarah | List with one client: Sarah |
 |  Update clients name | David | David |
 |  Delete client |A list of only one client rather than two | A database query that only returns one client after delete method has been called |
 

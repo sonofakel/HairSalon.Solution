@@ -21,5 +21,18 @@ namespace HairSalon.Tests
 
       Assert.AreEqual(expected, actual);
     }
+
+    [TestMethod]
+    public void Save_SavesClientToDatabase_ClientList()
+    {
+      Client testClient = new Client("Sarah", 1);
+      testClient.Save();
+
+      List<Client> actual = Client.GetAll();
+      List<Client> expected = new List<Client> {testClient};
+
+      CollectionAssert.AreEqual(expected, actual);
+    }
+
   }
 }

@@ -14,7 +14,7 @@
     <input type="text" name="client-name" <input pattern=".{1,}" required title="Minimum 1 character required">
 
     <button type="submit" class="btn btn-success">Add Client</button>
-      <a href="/"><button type="button" class="btn btn-info">Back</button></a>
+      <a href="/"><button type="button" class="btn btn-info">Back to Stylists</button></a>
 
   </form>
 
@@ -22,11 +22,14 @@
   @foreach(var client in Model.SearchAllClients())
   {
     <div class="well">
-    <h3>@client.GetName()</h3>
-    <a href="/stylist-details/@Model.GetId()/edit/@client.GetId()"><button type="submit" class="btn btn-info">Edit</button></a>
     <form action="/stylist-details/@Model.GetId()/deleted/@client.GetId()" method="post">
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger">x</button>
     </form>
+
+    <span class="client-style">@client.GetName()</span>
+    <a href="/stylist-details/@Model.GetId()/edit/@client.GetId()"><button type="submit" class="btn btn-info">Edit</button></a>
+
+
     </div>
   }
 

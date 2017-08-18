@@ -1,0 +1,31 @@
+body {
+  background-image: url("../../img/background.jpg");
+  color: #7b7b7b;
+  text-align: center;
+}
+
+.jumbotron {
+  text-align: center;
+  background-image: url("../../img/organic-tiles.png");
+  letter-spacing: 5px;
+}
+
+label {
+  color: white;
+  letter-spacing: 3px;
+  font-size: 20px;
+}
+
+.form-control {
+  margin: 2%;
+  width: 39%;
+  margin-left: 30%;
+}
+.btn-danger {
+
+    float: right;
+}
+.client-style {
+  font-size: 24px;
+}
+}

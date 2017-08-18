@@ -10,7 +10,16 @@ namespace HairSalon.Tests
   {
     public ClientTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=hair_salon_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=hair_salon_test;";
+    }
+
+    [TestMethod]
+    public void GetAll_GetAllClientsAtFirst_0()
+    {
+      int expected = 0;
+      int actual = Client.GetAll().Count;
+
+      Assert.AreEqual(expected, actual);
     }
   }
 }

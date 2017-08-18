@@ -42,5 +42,25 @@ namespace HairSalon.Models
     {
         return this.GetId().GetHashCode();
     }
+
+    public static List<Stylist> GetAll()
+      {
+        List<Stylist> stylistList = new List<Stylist> {};
+        MySqlConnection conn = DB.Connection();
+        conn.Open();
+
+        var cmd = conn.CreateCommand() as MySqlCommand;
+        cmd.CommandText = @"SELECT * FROM stylists;";
+        var rdr = cmd.ExecuteReader() as MySqlDataReader;
+        while(rdr.Read())
+        {
+          int stylistId = rdr.GetInt32(0);
+          string stylistName = rdr.GetString(1);
+          Stylist newStylist = new Stylist(stylistName, stylistId);
+          stylistList.Add(newStylist);
+        }
+        conn.Close();
+        return stylistList;
+      }
   }
 }

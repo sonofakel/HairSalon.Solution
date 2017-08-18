@@ -52,5 +52,7 @@ namespace HairSalon.Models
     {
       return this.GetName().GetHashCode();
     }
+
+    
   }
 }

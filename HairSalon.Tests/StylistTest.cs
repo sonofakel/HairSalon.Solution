@@ -6,7 +6,7 @@ using HairSalon.Models;
 namespace HairSalon.Tests
 {
   [TestClass]
-  public class StylistTest
+  public class StylistTest : IDisposable
   {
     public StylistTest()
     {
@@ -45,6 +45,11 @@ namespace HairSalon.Tests
 
       Assert.AreEqual(expected, actual);
     }
-    
+
+    public void Dispose()
+    {
+      Stylist.DeleteAll();
+    }
+
   }
 }

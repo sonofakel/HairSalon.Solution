@@ -29,9 +29,8 @@ _This web app will allow a hair salon owner to add a list of stylist, and for ea
 |  Get All method for Stylists | List of all stylists | List of all stylist from DB |
 |  Save stylist to database|  List with one stylist: Becky  |  List with one stylist: Becky  |
 |  Find stylist from database by id|  Becky  |  Becky  |
-
+| Get a list of all clients specific to the stylist | List with one client : Charlie | List with one client : Charlie|
 |  Save client to database | Charlie | Charlie |
-| Get a list of all clients specific to the stylist | Chinese Garden | Chinese Garden|
 |  Update clients name | David | David |
 |  Delete client |A list of only one client rather than two | A database query that only returns one client after delete method has been called |
 
